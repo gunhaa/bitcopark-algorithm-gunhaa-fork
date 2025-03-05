@@ -6,10 +6,10 @@ public class MyStack<E> implements StackADT<E> {
 
     private E[] stack;
     private int topIndex;
-    private int STACK_MAX_SIZE = 2;
+    private int stackSize = 2;
 
     public MyStack() {
-        this.stack = (E[]) new Object[STACK_MAX_SIZE];
+        this.stack = (E[]) new Object[stackSize];
         this.topIndex = -1;
     }
 
@@ -25,17 +25,16 @@ public class MyStack<E> implements StackADT<E> {
 
     @Override
     public void push(E obj) {
-        //while문이 되어야하지 않나?
-        if(STACK_MAX_SIZE <= topIndex+1){
-            sizeDouble();
+        if(stackSize <= topIndex+1){
+            grow();
         }
         this.stack[++this.topIndex]= obj;
     }
 
-    private void sizeDouble() {
+    private void grow() {
         E[] temp = this.stack;
-        this.STACK_MAX_SIZE *= 2;
-        this.stack = (E[]) new Object[this.STACK_MAX_SIZE];
+        this.stackSize *= 2;
+        this.stack = (E[]) new Object[this.stackSize];
         for (int i = 0; i < temp.length; i++) {
             this.stack[i] = temp[i];
         }
