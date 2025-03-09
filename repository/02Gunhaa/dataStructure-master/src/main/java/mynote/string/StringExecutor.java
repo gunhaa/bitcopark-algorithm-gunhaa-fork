@@ -40,6 +40,9 @@ public class StringExecutor {
         String s3 = new String(b2, StandardCharsets.UTF_8);
         System.out.println("s3 : " + s3);
 
+        System.out.println(Integer.toBinaryString(127));
+        System.out.println(Integer.toBinaryString(0));
+        System.out.println(Integer.toBinaryString(1));
     }
 
 }
