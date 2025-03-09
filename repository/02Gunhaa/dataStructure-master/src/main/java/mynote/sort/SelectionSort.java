@@ -30,9 +30,7 @@ public class SelectionSort {
 
                 }
 
-                if(minIndex == i ){
-                    continue;
-                } else {
+                if(minIndex != i ){
                     sortData.selectionSortSwap(data.get(i), data.get(minIndex));
                 }
 
